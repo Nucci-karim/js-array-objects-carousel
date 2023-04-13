@@ -24,7 +24,7 @@ const images = [
 ];
 
 // per inserire le immagini
-const linkImg = "./assets/js/"
+const linkImg = "./assets/"
 
 // --------------------------------------- esercizio vecchio --------------------------------------------//
 const prev = document.querySelector('.prev')
@@ -32,6 +32,7 @@ const next = document.querySelector('.next')
 
 console.log( prev, next )
 
+// funzione per il bottone avanti
 next.addEventListener( 'click', function(){
     
     
@@ -52,6 +53,7 @@ next.addEventListener( 'click', function(){
 
 })
 
+// funzione per il bottone indietro
 prev.addEventListener( 'click', function(){
     
     let activeItem = document.querySelector('.item.active')
@@ -64,13 +66,25 @@ prev.addEventListener( 'click', function(){
         itemToActive = document.querySelector('.item.last')
     }
 
-    
     activeItem.classList.remove('active')
     
-
     itemToActive.classList.add('active')
 
 })
 
 
 console.log( document.querySelectorAll('.item.last, .prev') )
+
+// stampa per le immagini del carosello
+for(let i = 0; i < images.length; i++){
+    document.querySelector(".items").innerHTML = 
+    `
+    <div class="item first active">
+        <img src="${ linkImg }${ images[i]['image']}" alt="">
+        <div class="info-img">
+            <h1>${images[i]['title']}</h1>
+            <p>${images[i]['text']}</p>
+        </div>
+    </div>
+    `
+}

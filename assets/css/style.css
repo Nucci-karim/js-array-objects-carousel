@@ -1,3 +1,9 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
 .container{
     width: 80%;
     margin: 0 auto;
@@ -11,6 +17,7 @@
 
 .item.active{
     display: block;
+    position: relative;
 }
 
 .item{
@@ -20,4 +27,12 @@
 .next,.prev{
     font-size: 35px;
     cursor: pointer;
+}
+
+
+.info-img{
+    position: absolute;
+    color: white;
+    bottom: 20px;
+    right: 20px;
 }
