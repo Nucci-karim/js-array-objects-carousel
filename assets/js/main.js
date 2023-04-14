@@ -27,23 +27,110 @@ const images = [
 const linkImg = "./assets/"
 
 // --------------------------------------- esercizio vecchio --------------------------------------------//
+// const prev = document.querySelector('.prev')
+// const next = document.querySelector('.next')
+
+// console.log( prev, next )
+
+// funzione per il bottone avanti
+// next.addEventListener( 'click', function(){
+    
+    
+//     let activeItem = document.querySelector('.item.active')
+//     console.log( activeItem )
+
+//     let itemToActive = activeItem.nextElementSibling
+//     console.log( itemToActive )
+
+//     if( activeItem.classList.contains('last') ){
+//         itemToActive = document.querySelector('.item.first')
+//     }
+
+//     activeItem.classList.remove('active')
+
+    
+//     itemToActive.classList.add('active')
+
+// })
+
+// funzione per il bottone indietro
+// prev.addEventListener( 'click', function(){
+    
+//     let activeItem = document.querySelector('.item.active')
+//     console.log( activeItem )
+
+//     let itemToActive = activeItem.previousElementSibling
+//     console.log( itemToActive )
+
+//     if( activeItem.classList.contains('first') ){
+//         itemToActive = document.querySelector('.item.last')
+//     }
+
+//     activeItem.classList.remove('active')
+    
+//     itemToActive.classList.add('active')
+
+// })
+
+
+// console.log( document.querySelectorAll('.item.last, .prev') )
+
+// stampa per le immagini del carosello
+// for(let i = 0; i < images.length; i++){
+//     document.querySelector(".items").innerHTML = 
+//     `
+//     <div class="item active">
+//         <img src="${ linkImg }${ images[i]['image']}" alt="">
+//         <div class="info-img">
+//             <h1>${images[i]['title']}</h1>
+//             <p>${images[i]['text']}</p>
+//         </div>
+//     </div>
+//     `
+// }
+
+images.forEach((element, index) => {
+    if(index === 0){
+        document.querySelector(".items").innerHTML += 
+    `
+    <div class="item active">
+        <img src="${ linkImg }${ element.image}" alt="">
+        <div class="info-img">
+            <h1>${element.title}</h1>
+            <p>${element.text}</p>
+        </div>
+    </div>
+    `
+    }else {
+        document.querySelector(".items").innerHTML += 
+        `
+        <div class="item">
+            <img src="${ linkImg }${ element.image}" alt="">
+            <div class="info-img">
+                <h1>${element.title}</h1>
+                <p>${element.text}</p>
+            </div>
+        </div>
+        `
+    }
+
+})
+
 const prev = document.querySelector('.prev')
 const next = document.querySelector('.next')
-
-console.log( prev, next )
 
 // funzione per il bottone avanti
 next.addEventListener( 'click', function(){
     
     
-    let activeItem = document.querySelector('.item.active')
+    let activeItem = images[i]
     console.log( activeItem )
 
-    let itemToActive = activeItem.nextElementSibling
+    let itemToActive = images.length + 1
     console.log( itemToActive )
 
-    if( activeItem.classList.contains('last') ){
-        itemToActive = document.querySelector('.item.first')
+    if( activeItem = images[4] ){
+        itemToActive = images[0]
     }
 
     activeItem.classList.remove('active')
@@ -56,35 +143,19 @@ next.addEventListener( 'click', function(){
 // funzione per il bottone indietro
 prev.addEventListener( 'click', function(){
     
-    let activeItem = document.querySelector('.item.active')
+    let activeItem = images.length
     console.log( activeItem )
 
-    let itemToActive = activeItem.previousElementSibling
+    let itemToActive = images.length - 1
     console.log( itemToActive )
 
-    if( activeItem.classList.contains('first') ){
-        itemToActive = document.querySelector('.item.last')
+    if( activeItem = images[0].length ){
+        itemToActive = images[4].length
     }
 
     activeItem.classList.remove('active')
+
     
     itemToActive.classList.add('active')
 
 })
-
-
-console.log( document.querySelectorAll('.item.last, .prev') )
-
-// stampa per le immagini del carosello
-for(let i = 0; i < images.length; i++){
-    document.querySelector(".items").innerHTML = 
-    `
-    <div class="item first active">
-        <img src="${ linkImg }${ images[i]['image']}" alt="">
-        <div class="info-img">
-            <h1>${images[i]['title']}</h1>
-            <p>${images[i]['text']}</p>
-        </div>
-    </div>
-    `
-}
