@@ -24,6 +24,13 @@
     display: none;
 }
 
+.items{
+    margin: 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 .next,.prev{
     font-size: 35px;
     cursor: pointer;
@@ -35,4 +42,8 @@
     color: white;
     bottom: 20px;
     right: 20px;
+}
+
+img{
+    width: 500px;
 }

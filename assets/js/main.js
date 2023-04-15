@@ -116,46 +116,43 @@ images.forEach((element, index) => {
 
 })
 
-const prev = document.querySelector('.prev')
 const next = document.querySelector('.next')
+const prev = document.querySelector('.prev')
+
+// indici posizione immagini
+let indexImage = 0
 
 // funzione per il bottone avanti
-next.addEventListener( 'click', function(){
-    
-    
-    let activeItem = images[i]
-    console.log( activeItem )
-
-    let itemToActive = images.length + 1
-    console.log( itemToActive )
-
-    if( activeItem = images[4] ){
-        itemToActive = images[0]
+function nextImg(){
+    if(indexImage == images.length - 1){
+        indexImage = 0
+    }else {
+        indexImage++;
     }
 
-    activeItem.classList.remove('active')
-
-    
-    itemToActive.classList.add('active')
-
+    document.querySelector('.item.active').classList.remove('active');
+    document.querySelector(".items").getElementsByClassName('item')[indexImage].classList.add('active')
+}
+next.addEventListener( 'click', function(){
+    nextImg()
 })
 
 // funzione per il bottone indietro
-prev.addEventListener( 'click', function(){
-    
-    let activeItem = images.length
-    console.log( activeItem )
-
-    let itemToActive = images.length - 1
-    console.log( itemToActive )
-
-    if( activeItem = images[0].length ){
-        itemToActive = images[4].length
+function prevImg(){
+    if(indexImage == 0){
+        indexImage = images.length - 1
+    }else {
+        indexImage--;
     }
 
-    activeItem.classList.remove('active')
-
-    
-    itemToActive.classList.add('active')
-
+    document.querySelector('.item.active').classList.remove('active');
+    document.querySelector(".items").getElementsByClassName('item')[indexImage].classList.add('active')
+}
+prev.addEventListener( 'click', function(){
+    prevImg()
 })
+
+// timer automatico
+let autoCarosello = setInterval( ()=>{
+    nextImg()
+}, 3000)
